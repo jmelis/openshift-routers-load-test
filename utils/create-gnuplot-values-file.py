@@ -39,9 +39,9 @@ def process(xz_file):
     total_requests = len(df)
     total_errors = total_http_errors + total_conn_errors
 
-    start_time = df['start_request'][total_requests - 1]
-    end_time = df['start_request'][0]
-    attack_duration = start_time - end_time
+    end_time = df['start_request'][total_requests - 1]
+    start_time = df['start_request'][0]
+    attack_duration = end_time - start_time
 
     error_rate = round(total_errors / (attack_duration / 1e6), ROUND_PRECISION)
     request_rate = round(
